@@ -4,6 +4,7 @@ $(document).ready(function() {
     //drawUsingCssColor();
     //drawGradient();
     drawPattern();
+    //drawImage();
 });
 
 
@@ -103,11 +104,70 @@ function drawSomething()
 
         // create new image object to use as pattern
         var img = new Image();
-        img.src = 'images/pattern.gif';
+        img.src = 'images/repeat.jpg';
         img.onload = function () {
             // create pattern
             var ptrn = ctx.createPattern(img, 'repeat');
             ctx.fillStyle = ptrn;
-            ctx.fillRect(0, 0, 400, 400);
+            ctx.fillRect(0, 0, 600, 800);
         }
     }
+    function drawImage(){
+
+        var canvas = document.getElementById('myCanvas'),
+        ctx = canvas.getContext('2d');
+        var img = new Image();
+        img.src = "images/Mybackground.jpg";
+        img.onload = function () {
+
+            ctx.font = 'bold 24pt Arial';
+
+            ctx.drawImage(img, 175, 0, 450, 600);
+
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(405, 180);
+            ctx.lineTo(325, 180);
+            ctx.stroke();
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 1;
+            ctx.textAlign = 'right';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Mast', 325, 180);
+            ctx.strokeText('Mast', 325, 180);
+
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(420, 220);
+            ctx.lineTo(525, 220);
+            ctx.stroke();
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 1;
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Sail', 525, 220);
+            ctx.strokeText('Sail', 525, 220);
+
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(420, 360);
+            ctx.lineTo(500, 360);
+            ctx.stroke();
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 1;
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Boom', 500, 360);
+            ctx.strokeText('Boom', 500, 360);
+
+
+        }
+
+
+    }
+
+
+    
