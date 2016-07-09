@@ -7,7 +7,8 @@ $(document).ready(function() {
     //drawImage();
     //drawLineWidth();
     //drawLineJoin();
-    drawGradientStroke();
+    //drawGradientStroke();
+    saveRestore();
 });
 
 
@@ -253,4 +254,23 @@ function drawSomething()
         gradient.addColorStop(".50", "green");
         gradient.addColorStop(".75", "yellow");
         gradient.addColorStop("1.0", "red");
+    }
+
+
+    function saveRestore() {
+        var canvas = document.getElementById('myCanvas')
+            , ctx = canvas.getContext('2d');
+        ctx.lineWidth = 20;
+        ctx.strokeStyle = "green";
+        ctx.lineJoin = 'round';
+        ctx.strokeRect(20, 20, 50, 50);
+        ctx.save();
+
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = "red"; 
+        ctx.lineJoin = 'bevel'; 
+        ctx.strokeRect(100, 100, 50, 50);
+
+        ctx.restore();
+        ctx.strokeRect(180, 180, 50, 50);
     }
