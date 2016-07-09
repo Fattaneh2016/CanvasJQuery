@@ -3,8 +3,10 @@ $(document).ready(function() {
     //drawSomething();
     //drawUsingCssColor();
     //drawGradient();
-    drawPattern();
+    //drawPattern();
     //drawImage();
+    drawLineWidth();
+
 });
 
 
@@ -169,5 +171,22 @@ function drawSomething()
 
     }
 
+    function drawLineWidth() {
+        var canvas = document.getElementById('myCanvas')
+            , ctx = canvas.getContext('2d')
+            , offset = 40
+            , width = 5
+            , height = 5
+            , lineWidth = 1
+            , i = 0
+            , centerX = canvas.width / 2
+            , centerY = canvas.height / 2;
 
+        for (i = 1; i < 15; i++) {
+            ctx.lineWidth = i;
+            ctx.strokeRect(centerX - (width / 2) - (i * offset / 2),
+                centerY - (height / 2) - (i * offset / 2),
+                width + (i * offset), height + (i * offset));
+        }
+    }
     
