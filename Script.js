@@ -9,7 +9,13 @@ $(document).ready(function() {
     //drawLineJoin();
     //drawGradientStroke();
     //saveRestore();
-    drawLine();
+    //drawLine();
+    //drawRect();
+    //drawRect2();
+    //drawArcTo();
+    //drawArcTo2();
+    //drawArc();
+    drawText();
 });
 
 
@@ -314,4 +320,133 @@ function drawSomething()
         ctx.fill();
         ctx.stroke();
 
+    }
+
+
+    function drawRect(){
+
+        var canvas = document.getElementById('myCanvas')
+
+        , ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = 'green';
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = 10;
+
+        ctx.beginPath();
+        ctx.moveTo(100, 300);
+        ctx.lineTo(150, 250);
+        ctx.lineTo(200, 300);
+        ctx.rect(100, 300, 100, 100);
+        ctx.fill();
+        ctx.stroke();
+      
+    }
+
+    function drawRect2() {
+        var canvas = document.getElementById('myCanvas')
+        , ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = 'green';
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = 10;
+
+        ctx.beginPath();
+        ctx.moveTo(100, 300);
+        ctx.lineTo(150, 250);
+        ctx.lineTo(200, 300);
+        ctx.rect(100, 300, 100, 100);
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+
+        ctx.moveTo(300, 300);
+        ctx.lineTo(350, 250);
+        ctx.lineTo(400, 300);
+        ctx.rect(300, 300, 100, 100);
+        ctx.stroke();
+        ctx.fill();
+    }
+
+    function drawArcTo() {
+        var canvas = document.getElementById('myCanvas')
+        , ctx = canvas.getContext('2d');
+
+        ctx.strokeStyle = 'gray'; 
+        ctx.lineWidth = 1;
+
+        ctx.beginPath();
+        ctx.moveTo(300, 200);
+        ctx.lineTo(400, 500);
+        ctx.lineTo(600, 300);
+        ctx.stroke();
+
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 5;
+
+        ctx.beginPath();
+        ctx.moveTo(300, 200);
+        ctx.arcTo(400, 500, 600, 300, 50);
+        ctx.stroke();
+    }
+    function drawArcTo2() {
+        var canvas = document.getElementById('myCanvas')
+        , ctx = canvas.getContext('2d');
+
+        ctx.strokeStyle = 'gray';
+        ctx.lineWidth = 1;
+
+        ctx.beginPath();
+        ctx.moveTo(300, 200);
+        ctx.lineTo(400, 500);
+        ctx.lineTo(600, 300);
+        ctx.stroke();
+
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 5;
+
+        ctx.beginPath();
+        ctx.moveTo(300, 200);
+        ctx.arcTo(400, 500, 600, 300, 300);
+        ctx.stroke();
+    }
+
+
+    function drawArc() {
+        var canvas = document.getElementById('myCanvas')
+        , ctx = canvas.getContext('2d'); 
+ 
+        ctx.strokeStyle = 'blue';
+        ctx.fillStyle = 'yellow';
+        ctx.lineWidth = 5;
+
+        ctx.beginPath();
+        //ctx.arc(400, 300, 100, 0, 2 * Math.PI);
+        //ctx.arc(400, 300, 100, 0, 1.5 * Math.PI);
+        ctx.arc(400, 300, 100, 1.5 * Math.PI,0);
+
+        ctx.fill();
+        ctx.stroke();
+    }
+
+    function drawText() {
+        var canvas = document.getElementById('myCanvas')
+        , ctx = canvas.getContext('2d');
+
+        ctx.strokeStyle = 'magenta';
+        ctx.fillStyle = 'yellow';
+        ctx.lineWidth = 2;
+        ctx.font = "bold 100pt TimesNewRoman";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+
+        ctx.beginPath();
+        ctx.moveTo(100, 300);
+        ctx.lineTo(700, 300);
+        ctx.stroke();
+
+        ctx.strokeStyle = 'blue';
+        ctx.fillText("Hello", 400, 300);
+        ctx.strokeText("Hello", 400, 300);
+        
     }
